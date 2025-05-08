@@ -10,9 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin :["http://localhost:5173","https://to-do-raweng.netlify.app/"],
-    credentials:true
-}))
+    origin: ['http://localhost:5173', 'https://to-do-raweng.netlify.app'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  }));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
