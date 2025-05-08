@@ -18,6 +18,13 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
 
+app.use('/', (req,res) =>{
+    res.send({
+        activeStatus :true,
+        error:false,
+    })
+})
+
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
